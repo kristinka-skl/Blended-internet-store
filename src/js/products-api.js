@@ -11,5 +11,9 @@ export async function getCategories() {
     return res.data;
     
 }
-export function getProducts(currentPage = 1) { }
+
+export async function getProducts(currentPage = 1) {
+    const res = await axios.get(`?limit=12&skip=${(currentPage - 1) * 12}`);
+    return res.data.products;
+ }
 
